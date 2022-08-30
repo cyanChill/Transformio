@@ -1,4 +1,18 @@
 :root {
+  --red-200: 4 94% 69%;
+  --red-500: 4 83% 57%;
+
+  --off-white-100: 0 0% 98%;
+  --off-white-200: 0 0% 96%;
+  --off-white-400: 0 0% 94%;
+
+  --grey-100: 0 0% 90%;
+  --grey-300: 0 0% 80%;
+  --grey-400: 0 0% 72%;
+  --grey-450: 0 0% 60%;
+  --grey-500: 0 0% 54%;
+  --grey-550: 228 2% 45%;
+  --grey-700: 228 2% 30%;
 }
 
 *,
@@ -12,6 +26,7 @@
 body,
 #__next {
   min-height: 100vh;
+  background-color: hsl(var(--off-white-400));
 
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -25,6 +40,14 @@ body,
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* For "..." on long text */
+.ellipse {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,0 +1,67 @@
+.hidden {
+  display: none !important;
+}
+
+/* "No File" View */
+.dragContainer {
+  min-height: 20rem;
+  width: 80vw;
+  max-width: 40rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem;
+  color: hsl(var(--grey-700));
+  outline: 2px dashed hsl(var(--grey-500));
+  outline-offset: -0.5rem;
+
+  background-color: hsl(var(--grey-100));
+  transition: outline 200ms, outline-offset 200ms, background-color 200ms;
+}
+
+.dragContainer.dragHover {
+  outline-offset: -0.75rem;
+  outline-color: hsl(var(--grey-300));
+  background-color: hsl(var(--off-white-200));
+}
+
+.downloadIcon {
+  color: hsl(var(--grey-450));
+  font-size: 5rem;
+}
+
+.inputLabel:hover {
+  cursor: pointer;
+}
+
+.inputLabel:hover > strong,
+.inputLabel:focus > strong {
+  color: black;
+}
+
+/* "Selected File" View */
+.selFile {
+  min-width: 0;
+  width: 50vw;
+  max-width: 40rem;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  flex-shrink: 0;
+  font-size: 1.15rem;
+  color: hsl(var(--red-200));
+}
+
+.icon:hover {
+  cursor: pointer;
+  color: hsl(var(--red-500));
+}
