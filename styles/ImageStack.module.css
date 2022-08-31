@@ -1,0 +1,38 @@
+.stackContainer {
+  position: relative;
+  display: grid;
+}
+
+.stackContainer > svg {
+  --svg-scale: 85%;
+  grid-area: 1 / 1 / 2 / 2;
+  animation: hover 3s infinite;
+}
+
+.stackContainer > :nth-child(1) {
+  --svg-translate: -5%;
+  z-index: 3;
+}
+
+.stackContainer > :nth-child(2) {
+  --svg-translate: 0%;
+  z-index: 2;
+}
+
+.stackContainer > :nth-child(3) {
+  --svg-translate: 5%;
+  z-index: 1;
+}
+
+@keyframes hover {
+  0%,
+  100% {
+    transform: translateX(var(--svg-translate)) translateY(var(--svg-translate))
+      scale(var(--svg-scale));
+  }
+  50% {
+    transform: translateX(var(--svg-translate))
+      translateY(calc(var(--svg-translate) + 0.5rem)) translateZ(0%)
+      scale(var(--svg-scale));
+  }
+}

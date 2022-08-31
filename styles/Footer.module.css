@@ -1,0 +1,10 @@
+.wrapper {
+  width: 100%;
+  margin-top: auto;
+  color: hsl(var(--off-white-200));
+  background-color: hsl(var(--grey-700));
+}
+
+.footerContainer {
+  text-align: center;
+}

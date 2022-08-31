@@ -1,13 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+
 import styles from "../styles/Home.module.css";
-import FileDragDrop from "../components/Form/FileDragDrop";
+import Hero from "../components/Hero";
+import UploadForm from "../components/Upload/UploadForm";
+import Footer from "../components/Footer";
 
 const Home: NextPage = () => {
-  const readCurrFile = (val: File) => {
-    console.log("File in File Input:", val);
-  };
-
   return (
     <div className={styles.wrapper}>
       <Head>
@@ -19,8 +18,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Transformio</h1>
-      <FileDragDrop passCurrFile={readCurrFile} />
+      <Hero />
+      <UploadForm />
+      <Footer />
     </div>
   );
 };
