@@ -4,9 +4,8 @@
 
 /* "No File" View */
 .dragContainer {
-  min-height: 20rem;
-  width: 80vw;
-  max-width: 40rem;
+  min-height: 10rem;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -18,7 +17,6 @@
   color: hsl(var(--grey-700));
   outline: 2px dashed hsl(var(--grey-500));
   outline-offset: -0.5rem;
-
   background-color: hsl(var(--grey-100));
   transition: outline 200ms, outline-offset 200ms, background-color 200ms;
 }
@@ -26,12 +24,12 @@
 .dragContainer.dragHover {
   outline-offset: -0.75rem;
   outline-color: hsl(var(--grey-300));
-  background-color: hsl(var(--off-white-200));
+  background-color: hsl(var(--off-white-100));
 }
 
 .downloadIcon {
   color: hsl(var(--grey-450));
-  font-size: 5rem;
+  font-size: clamp(3.5rem, 15vw, 5rem);
 }
 
 .inputLabel:hover {
@@ -46,13 +44,21 @@
 /* "Selected File" View */
 .selFile {
   min-width: 0;
-  width: 50vw;
-  max-width: 40rem;
-  
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
+
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  box-shadow: 1px 1px 4px 2px hsl(var(--grey-300));
+  background-color: hsl(var(--off-white-100));
+}
+
+.selFile > p {
+  font-size: 0.9rem;
 }
 
 .icon {
@@ -64,4 +70,10 @@
 .icon:hover {
   cursor: pointer;
   color: hsl(var(--red-500));
+}
+
+@media (min-width: 568px) {
+  .dragContainer {
+    height: clamp(10rem, 30vw, 20rem);
+  }
 }

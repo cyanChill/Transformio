@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import toast from "react-hot-toast";
 import { BsDownload } from "react-icons/bs";
 import { IoClose } from "react-icons/io5";
 
@@ -6,7 +7,7 @@ import styles from "../../styles/FileDragDrop.module.css";
 
 interface FileDragDropProps {
   name?: string;
-  passCurrFile: (val: File) => void;
+  passCurrFile: (val: File | null) => void;
 }
 
 const FileDragDrop = ({
@@ -46,8 +47,16 @@ const FileDragDrop = ({
   const removeFile = () => setMediaFile(null);
 
   useEffect(() => {
-    if (mediaFile) passCurrFile(mediaFile);
-    else passCurrFile(null);
+    if (mediaFile) {
+      const extension = mediaFile.type.split("/")[1];
+      // Reject webp & mp4 files as they're already in efficient formats
+      if (extension === "webp" || extension === "mp4") {
+        setMediaFile(null);
+        toast.error("Media is already in an efficient format.");
+      } else passCurrFile(mediaFile);
+    } else {
+      passCurrFile(null);
+    }
   }, [mediaFile]); // eslint-disable-line
 
   return (
