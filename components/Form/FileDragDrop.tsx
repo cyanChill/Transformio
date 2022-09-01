@@ -47,13 +47,23 @@ const FileDragDrop = ({
   const removeFile = () => setMediaFile(null);
 
   useEffect(() => {
-    if (mediaFile) {
-      const extension = mediaFile.type.split("/")[1];
-      // Reject webp & mp4 files as they're already in efficient formats
-      if (extension === "webp" || extension === "mp4") {
+    if (mediaFile && mediaFile.type) {
+      const [fileCtgy, fileExt] = mediaFile.type.split("/");
+      if (!fileCtgy || !fileExt) {
+        // Unknown file type property
+        setMediaFile(null);
+        toast.error("Unknown media type.");
+      } else if (fileCtgy !== "image" && fileCtgy !== "video") {
+        // File isn't an image or video
+        setMediaFile(null);
+        toast.error("Media isn't an image or video.");
+      } else if (fileExt === "webp" || fileExt === "mp4") {
+        // Reject webp & mp4 files as they're already in efficient formats
         setMediaFile(null);
         toast.error("Media is already in an efficient format.");
-      } else passCurrFile(mediaFile);
+      } else {
+        passCurrFile(mediaFile);
+      }
     } else {
       passCurrFile(null);
     }
