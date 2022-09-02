@@ -32,6 +32,10 @@
   font-size: clamp(3.5rem, 15vw, 5rem);
 }
 
+.formText {
+  text-align: center;
+}
+
 .inputLabel:hover {
   cursor: pointer;
 }
@@ -39,6 +43,15 @@
 .inputLabel:hover > strong,
 .inputLabel:focus > strong {
   color: black;
+}
+
+.condition {
+  font-size: 0.8rem;
+  color: hsl(var(--grey-700));
+}
+
+.condition > strong {
+  font-weight: 600;
 }
 
 /* "Selected File" View */

@@ -1,3 +1,79 @@
+.hide {
+  display: none !important;
+}
+
 .wrapper {
   width: 100%;
+}
+
+/* Upload Form Styling */
+.uploadForm {
+  --animDuration: 500ms;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.openAnim {
+  opacity: 0;
+  animation: appear var(--animDuration) forwards;
+}
+
+.uploadForm.closeAnim {
+  animation: close var(--animDuration) forwards;
+}
+
+.btn {
+  width: max-content;
+  align-self: center;
+
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 0;
+  color: hsl(var(--off-white-100));
+  background-color: hsl(var(--orange-500));
+  box-shadow: 1px 1px 4px hsl(var(--grey-300));
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: var(--ff-main);
+
+  animation: appear 500ms;
+  transition: background-color 500ms;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: hsl(var(--orange-600));
+}
+
+.btn.hide {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Components for indicating conversion in progress */
+.convertingIndicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes close {
+  to {
+    transform: scale(0);
+  }
 }

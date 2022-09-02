@@ -4,18 +4,20 @@ import { BsDownload } from "react-icons/bs";
 import { IoClose } from "react-icons/io5";
 
 import styles from "../../styles/FileDragDrop.module.css";
+import { extractFileInfo, fileSizeIsLEQ } from "../../utils/imgHelper";
 
 interface FileDragDropProps {
   name?: string;
+  value?: File | null;
   passCurrFile: (val: File | null) => void;
 }
 
 const FileDragDrop = ({
   name = "fileInput",
+  value,
   passCurrFile,
 }: FileDragDropProps) => {
   const dropContainerRef = useRef<HTMLInputElement>(null);
-
   const [mediaFile, setMediaFile] = useState<File | null>(null);
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,8 +50,12 @@ const FileDragDrop = ({
 
   useEffect(() => {
     if (mediaFile && mediaFile.type) {
-      const [fileCtgy, fileExt] = mediaFile.type.split("/");
-      if (!fileCtgy || !fileExt) {
+      const { fileCtgy, fileExt } = extractFileInfo(mediaFile);
+
+      if (!fileSizeIsLEQ(mediaFile, 100)) {
+        setMediaFile(null);
+        toast.error("File is not < 100 MB in size.");
+      } else if (!fileCtgy || !fileExt) {
         // Unknown file type property
         setMediaFile(null);
         toast.error("Unknown media type.");
@@ -69,6 +75,10 @@ const FileDragDrop = ({
     }
   }, [mediaFile]); // eslint-disable-line
 
+  useEffect(() => {
+    if (value === null || value) setMediaFile(value);
+  }, [value]);
+
   return (
     <>
       <div
@@ -80,10 +90,16 @@ const FileDragDrop = ({
         ref={dropContainerRef}
       >
         <BsDownload className={styles.downloadIcon} />
-        <label htmlFor="file" className={styles.inputLabel}>
-          <strong>Choose a file</strong>
-          <span className="box__dragndrop"> or drag it here</span>.
-        </label>
+        <div className={styles.formText}>
+          <label htmlFor="file" className={styles.inputLabel}>
+            <strong>Choose a file</strong>
+            <span className="box__dragndrop"> or drag it here</span>.
+          </label>
+          <p className={styles.condition}>
+            <strong>100 MB</strong> maximum file size
+          </p>
+        </div>
+
         <input
           className={styles.hidden}
           id="file"
