@@ -2,9 +2,25 @@
   width: 100%;
   margin-top: auto;
   color: hsl(var(--off-white-200));
-  background-color: hsl(var(--grey-550));
+  background-color: hsl(var(--off-black-500));
 }
 
 .footerContainer {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+}
+
+.iconLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.iconLink:hover {
+  color: hsl(var(--grey-200));
 }

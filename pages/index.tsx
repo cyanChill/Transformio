@@ -4,6 +4,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Hero from "../components/Hero";
 import UploadForm from "../components/Upload/UploadForm";
+import Marketing from "../components/Marketing";
 import Footer from "../components/Footer";
 
 const Home: NextPage = () => {
@@ -20,6 +21,7 @@ const Home: NextPage = () => {
 
       <Hero />
       <UploadForm />
+      <Marketing />
       <Footer />
     </div>
   );

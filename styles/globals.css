@@ -13,6 +13,7 @@
   --blue-100: 209 92% 86%;
   --blue-300: 209 92% 75%;
   --blue-500: 209 92% 60%;
+  --blue-700: 209 92% 40%;
 
   --purple-100: 266 100% 90%;
   --purple-300: 266 100% 82%;
@@ -31,6 +32,8 @@
   --grey-500: 0 0% 54%;
   --grey-550: 228 2% 45%;
   --grey-700: 228 2% 30%;
+
+  --off-black-500: 203 8% 21%;
 
   --max-app-width: 75rem;
 
@@ -101,6 +104,15 @@ svg .svg_light_clr {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.link {
+  text-decoration: underline;
+  color: hsl(var(--blue-500));
+}
+
+.link:hover {
+  color: hsl(var(--blue-700));
 }
 
 @media (prefers-color-scheme: dark) {
