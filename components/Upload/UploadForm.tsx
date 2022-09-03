@@ -30,8 +30,8 @@ const UploadForm = () => {
     } else {
       const { fileCtgy, fileName } = extractFileInfo(currFile);
 
-      if (!fileSizeIsLEQ(currFile, 100)) {
-        toast.error("File is not < 100 MB in size.");
+      if (!fileSizeIsLEQ(currFile, 50)) {
+        toast.error("File is not < 50 MB in size.");
         return;
       }
 

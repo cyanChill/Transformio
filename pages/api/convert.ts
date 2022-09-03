@@ -53,8 +53,8 @@ const ConvertFile = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const mediaFile = Array.isArray(inputFile) ? inputFile[0] : inputFile;
-  if (!fileSizeIsLEQ(mediaFile, 100)) {
-    res.status(406).json({ message: "File size is > 100 MB." });
+  if (!fileSizeIsLEQ(mediaFile, 50)) {
+    res.status(406).json({ message: "File size is > 50 MB." });
     return;
   }
   // We know mediaFile should exist & have a mimetype (TypeScript says only

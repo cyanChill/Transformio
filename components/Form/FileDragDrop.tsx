@@ -52,9 +52,9 @@ const FileDragDrop = ({
     if (mediaFile && mediaFile.type) {
       const { fileCtgy, fileExt } = extractFileInfo(mediaFile);
 
-      if (!fileSizeIsLEQ(mediaFile, 100)) {
+      if (!fileSizeIsLEQ(mediaFile, 50)) {
         setMediaFile(null);
-        toast.error("File is not < 100 MB in size.");
+        toast.error("File is not < 50 MB in size.");
       } else if (!fileCtgy || !fileExt) {
         // Unknown file type property
         setMediaFile(null);
