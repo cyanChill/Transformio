@@ -7,6 +7,8 @@ const errorDebug = Debug("api-error");
 import { fileSizeIsLEQ } from "../../utils/imgHelper";
 import { convertVideo } from "../../utils/backendMediaHelper";
 
+const maxFileSizeMB = +`${process.env.NEXT_PUBLIC_MAX_FILE_SIZE_MB}`;
+
 export const config = {
   api: {
     bodyParser: false, // Don't allow body parsing; accept data as stream
@@ -53,8 +55,8 @@ const ConvertFile = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const mediaFile = Array.isArray(inputFile) ? inputFile[0] : inputFile;
-  if (!fileSizeIsLEQ(mediaFile, 50)) {
-    res.status(406).json({ message: "File size is > 50 MB." });
+  if (!fileSizeIsLEQ(mediaFile, maxFileSizeMB)) {
+    res.status(406).json({ message: `File size is > ${maxFileSizeMB} MB.` });
     return;
   }
   // We know mediaFile should exist & have a mimetype (TypeScript says only

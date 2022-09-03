@@ -9,6 +9,8 @@ import LoadingSpinner from "../UI/LoadingSpinner";
 
 type convertStates = "none" | "in-progress" | "done";
 
+const maxFileSizeMB = +`${process.env.NEXT_PUBLIC_MAX_FILE_SIZE_MB}`;
+
 const UploadForm = () => {
   const downloadRef = useRef<HTMLAnchorElement | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -30,8 +32,8 @@ const UploadForm = () => {
     } else {
       const { fileCtgy, fileName } = extractFileInfo(currFile);
 
-      if (!fileSizeIsLEQ(currFile, 50)) {
-        toast.error("File is not < 50 MB in size.");
+      if (!fileSizeIsLEQ(currFile, maxFileSizeMB)) {
+        toast.error(`File is not < ${maxFileSizeMB} MB in size.`);
         return;
       }
 

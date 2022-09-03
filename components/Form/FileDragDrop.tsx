@@ -12,6 +12,8 @@ interface FileDragDropProps {
   passCurrFile: (val: File | null) => void;
 }
 
+const maxFileSizeMB = +`${process.env.NEXT_PUBLIC_MAX_FILE_SIZE_MB}`;
+
 const FileDragDrop = ({
   name = "fileInput",
   value,
@@ -52,9 +54,9 @@ const FileDragDrop = ({
     if (mediaFile && mediaFile.type) {
       const { fileCtgy, fileExt } = extractFileInfo(mediaFile);
 
-      if (!fileSizeIsLEQ(mediaFile, 50)) {
+      if (!fileSizeIsLEQ(mediaFile, maxFileSizeMB)) {
         setMediaFile(null);
-        toast.error("File is not < 50 MB in size.");
+        toast.error(`File is not < ${maxFileSizeMB} MB in size.`);
       } else if (!fileCtgy || !fileExt) {
         // Unknown file type property
         setMediaFile(null);
@@ -96,7 +98,8 @@ const FileDragDrop = ({
             <span className="box__dragndrop"> or drag it here</span>.
           </label>
           <p className={styles.condition}>
-            <strong>100 MB</strong> maximum file size
+            <strong>{process.env.NEXT_PUBLIC_MAX_FILE_SIZE_MB} MB</strong>{" "}
+            maximum file size
           </p>
         </div>
 
