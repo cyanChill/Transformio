@@ -1,5 +1,10 @@
+import formidable from "formidable";
+
 /* Checks whether the img size is <= the specified value */
-export const fileSizeIsLEQ = (fileObj: File, sizeMB: number) => {
+export const fileSizeIsLEQ = (
+  fileObj: File | formidable.File,
+  sizeMB: number
+) => {
   return fileObj.size <= sizeMB * 1000000;
 };
 

@@ -105,7 +105,7 @@ const FileDragDrop = ({
           id="file"
           name={name}
           type="file"
-          accept="image/*,video/*"
+          accept="image/*,video/*,.mkv"
           onClick={(e) => ((e.target as HTMLInputElement).value = "")}
           onChange={changeHandler}
         />

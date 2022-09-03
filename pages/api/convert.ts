@@ -1,12 +1,16 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import formidable from "formidable";
 import sharp from "sharp";
+import Debug from "debug";
+const errorDebug = Debug("api-error");
 
-import { fileSizeIsLEQ, extractFileInfo } from "../../utils/imgHelper";
+import { fileSizeIsLEQ } from "../../utils/imgHelper";
+import { convertVideo } from "../../utils/backendMediaHelper";
 
 export const config = {
   api: {
     bodyParser: false, // Don't allow body parsing; accept data as stream
+    responseLimit: false, // Allow sending responses > 4 MB
   },
 };
 
@@ -32,10 +36,6 @@ interface formDataResults {
   files?: formidable.Files;
 }
 
-/* 
-  TODO: Document converting logic
-*/
-
 const ConvertFile = async (req: NextApiRequest, res: NextApiResponse) => {
   // Extract info from formdata
   const data: formDataResults = await new Promise((resolve, reject) => {
@@ -53,6 +53,10 @@ const ConvertFile = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const mediaFile = Array.isArray(inputFile) ? inputFile[0] : inputFile;
+  if (!fileSizeIsLEQ(mediaFile, 100)) {
+    res.status(406).json({ message: "File size is > 100 MB." });
+    return;
+  }
   // We know mediaFile should exist & have a mimetype (TypeScript says only
   // type "File" has it while formidable.File doesn't)
   // @ts-ignore
@@ -63,21 +67,22 @@ const ConvertFile = async (req: NextApiRequest, res: NextApiResponse) => {
 
     switch (fileType) {
       case "image":
-        res.setHeader("Content-Type", "image/webp");
         fileBuffer = await sharp(mediaFile.filepath).webp().toBuffer();
+        res.setHeader("Content-Type", "image/webp");
         break;
+
       case "video":
-        res.status(501).json({ message: "Converting videos not implemented." });
-        return;
+        fileBuffer = await convertVideo(mediaFile);
         res.setHeader("Content-Type", "video/mp4");
         break;
+
       default:
         res.status(404).json({ message: "Invalid file type." });
         return;
     }
-
     return res.status(200).send(fileBuffer);
   } catch (err) {
+    errorDebug(err);
     res.status(500).json({ message: "Failed to convert file." });
   }
 };
