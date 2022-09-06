@@ -2,6 +2,10 @@
 
 This is an application to transform files to more effiicent formats such as `webp` & `mp4` (in `h.265` encoding).
 
+
+https://user-images.githubusercontent.com/83375816/188737102-cf3c00b8-d883-4093-b586-624c6b4de08c.mp4
+
+
 # Installation & Setup
 
 ## Prerequisites:
