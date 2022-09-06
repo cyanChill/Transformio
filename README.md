@@ -1,10 +1,8 @@
 # Transformio
 
-This is an application to transform files to more effiicent formats such as `webp` & `mp4` (in `h.265` encoding).
-
+This is an application to transform files to more effiicent formats such as `webp` & `mp4` (in `h.264` or `h.265` encoding [depends on configurations]).
 
 https://user-images.githubusercontent.com/83375816/188737102-cf3c00b8-d883-4093-b586-624c6b4de08c.mp4
-
 
 # Installation & Setup
 
@@ -16,10 +14,11 @@ You must have **ffmpeg** installed on your device. For info on how to install **
 
 These are generally optional.
 
-| Variable Name                  | Value                                                                                                                                            |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `DEBUG`                        | A comma-seperated list specifying which debug messages we want to show. Possible values are: `api-error`, `ffmpeg-progress`, and `ffmpeg-error`. |
-| `NEXT_PUBLIC_MAX_FILE_SIZE_MB` | This is a positive integer which limits the maximum size file input we can convert.                                                              |
+| Variable Name | Value |
+| ------------- | ----- |
+| `DEBUG` | A comma-seperated list specifying which debug messages we want to show. Possible values are: `api-error`, `ffmpeg-progress`, and `ffmpeg-error`. |
+| `DONT_USE_H264` | Determines whether we encode videos in `h.264` or `h.265`. If we set the variable to `"true"`, we'll encode using `h.265`, otherwise, we'll encode in `h.264`. **_(It's suggested to leave this empty as not all applications support h.265 encoded videos.)_** |
+| `NEXT_PUBLIC_MAX_FILE_SIZE_MB` | This is a positive integer which limits the maximum size file input we can convert. |
 
 ## How to Run Locally
 
