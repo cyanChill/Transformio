@@ -91,7 +91,10 @@ const FileDragDrop = ({
         onDragEnd={dragEndHandler}
         ref={dropContainerRef}
       >
-        <BsDownload className={styles.downloadIcon} />
+        <BsDownload
+          className={styles.downloadIcon}
+          style={{ fill: "url(#orange-gradient)" }}
+        />
         <div className={styles.formText}>
           <label htmlFor="file" className={styles.inputLabel}>
             <strong>Choose a file</strong>

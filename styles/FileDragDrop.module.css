@@ -44,7 +44,10 @@
 
 .inputLabel:hover > strong,
 .inputLabel:focus > strong {
-  color: white;
+  /* For gradient text color effect */
+  background-image: var(--primary-gradient);
+  background-clip: text;
+  color: transparent;
 }
 
 .condition {

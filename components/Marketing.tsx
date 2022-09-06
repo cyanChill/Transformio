@@ -7,7 +7,10 @@ const Marketing = () => {
     <section className={styles.wrapper}>
       <div className={`container ${styles.marketingContainer}`}>
         <div className={styles.feature}>
-          <MdSpeed className={styles.featureIcon} />
+          <MdSpeed
+            className={styles.featureIcon}
+            style={{ fill: "url(#orange-gradient)" }}
+          />
           <p className={styles.featureName}>Fast and simple</p>
           <p className={styles.featureDescription}>
             Just select the media file (image or video) and we&apos;ll
@@ -17,7 +20,10 @@ const Marketing = () => {
         </div>
 
         <div className={styles.feature}>
-          <MdCloudUpload className={styles.featureIcon} />
+          <MdCloudUpload
+            className={styles.featureIcon}
+            style={{ fill: "url(#orange-gradient)" }}
+          />
           <p className={styles.featureName}>In the cloud</p>
           <p className={styles.featureDescription}>
             Your files are converted on the fly on our servers and returned to
@@ -26,7 +32,10 @@ const Marketing = () => {
         </div>
 
         <div className={styles.feature}>
-          <MdShield className={styles.featureIcon} />
+          <MdShield
+            className={styles.featureIcon}
+            style={{ fill: "url(#orange-gradient)" }}
+          />
           <p className={styles.featureName}>Security</p>
           <p className={styles.featureDescription}>
             Since this app is avaliable open source, you can run this
@@ -44,7 +53,10 @@ const Marketing = () => {
         </div>
 
         <div className={styles.feature}>
-          <MdDevices className={styles.featureIcon} />
+          <MdDevices
+            className={styles.featureIcon}
+            style={{ fill: "url(#orange-gradient)" }}
+          />
           <p className={styles.featureName}>All Devices Supported</p>
           <p className={styles.featureDescription}>
             Transformio is browser-based and works on all platforms.

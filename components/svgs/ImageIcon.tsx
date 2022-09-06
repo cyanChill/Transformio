@@ -1,34 +1,19 @@
 import React from "react";
 
-interface ImageIconProps {
-  darkColor?: string;
-  lightColor?: string;
-}
-
-const ImageIcon = ({
-  darkColor = "#8a8a8a",
-  lightColor = "#f5f5f5",
-}: ImageIconProps) => {
+const ImageIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
       x="0px"
       y="0px"
       width="100%"
       viewBox="0 0 100 125"
       enableBackground="new 0 0 100 125"
       xmlSpace="preserve"
-      style={
-        {
-          "--svg-dark-clr": darkColor,
-          "--svg-light-clr": lightColor,
-        } as React.CSSProperties
-      }
     >
       {/* Outer Frame Border */}
       <path
-        className="svg_dark_clr"
+        fill="hsl(var(--navy-500))"
         stroke="none"
         d="
 M22.002573,6.000000 
@@ -48,7 +33,7 @@ z"
 
       {/* Outside of "Film" but within frame border */}
       <path
-        className="svg_light_clr"
+        fill="url(#orange-gradient)"
         stroke="none"
         d="
 M8.000000,46.000000 
@@ -68,7 +53,7 @@ z"
 
       {/* Mountains */}
       <path
-        className="svg_dark_clr"
+        fill="hsl(var(--navy-500))"
         stroke="none"
         d="
 M38.000000,92.000000 
@@ -91,7 +76,7 @@ z"
 
       {/* Film Background */}
       <path
-        className="svg_light_clr"
+        fill="url(#orange-gradient)"
         stroke="none"
         d="
 M56.000000,14.000000 
@@ -113,7 +98,7 @@ z"
 
       {/* "Sun" */}
       <path
-        className="svg_dark_clr"
+        fill="hsl(var(--navy-500))"
         stroke="none"
         d="
 M38.999954,26.154589 
@@ -123,6 +108,18 @@ M38.999954,26.154589
  C35.038799,18.823389 37.915119,20.709858 38.999954,26.154589 
 z"
       />
+
+      <linearGradient
+        id="orange-gradient"
+        x1="0"
+        y1="0"
+        x2="100"
+        y2="125"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#FFB800" />
+        <stop offset="1" stopColor="#FFE600" />
+      </linearGradient>
     </svg>
   );
 };

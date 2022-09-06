@@ -22,22 +22,6 @@
 
   --navy-500: 231 22% 19%;
 
-  /* TEMPORARY START */
-  --lilac-25: #68687a;
-  --lilac-500: #545578;
-  --lilac-600: #46465c;
-  --lilac-700: #37374d;
-  --lilac-800: #323548;
-  --lilac-900: #282838;
-
-  --navy-700: #26293b;
-  --navy-800: #191b2a;
-  --navy-850: #181827;
-  --navy-900: #11121d;
-  --navy-950: #0d0d14;
-  --navy-1000: #010102;
-  /* TEMPORARY END */
-
   --purple-100: 266 100% 90%;
   --purple-300: 266 100% 82%;
   --purple-700: 276 100% 67%;
@@ -60,6 +44,8 @@
 
   --off-black-100: 203 8% 15%;
   --off-black-500: 203 8% 21%;
+
+  --primary-gradient: linear-gradient(to bottom right, #ffb800, #ffe600);
 
   --max-app-width: 75rem;
 
@@ -113,20 +99,6 @@ a {
   }
 }
 
-/* Basic Custom SVG Styling */
-svg {
-  --svg-dark-clr: hsl(var(--grey-500));
-  --svg-light-clr: hsl(var(var(--off-white-200)));
-}
-
-svg .svg_dark_clr {
-  fill: var(--svg-dark-clr);
-}
-
-svg .svg_light_clr {
-  fill: var(--svg-light-clr);
-}
-
 /* For "..." on long text */
 .ellipse {
   max-width: 100%;
@@ -142,6 +114,13 @@ svg .svg_light_clr {
 
 .link:hover {
   color: hsl(var(--blue-700));
+}
+
+.txt-gradient {
+  /* For gradient text color effect */
+  background-image: var(--primary-gradient);
+  background-clip: text;
+  color: transparent;
 }
 
 @media (prefers-color-scheme: dark) {
