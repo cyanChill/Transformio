@@ -123,5 +123,25 @@ a {
   color: transparent;
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  height: 3px;
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 1rem;
+  background: hsl(var(--grey-550));
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background: hsl(var(--grey-300));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--off-white-400));
+}
+
 @media (prefers-color-scheme: dark) {
 }
