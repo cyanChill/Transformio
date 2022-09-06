@@ -1,0 +1,19 @@
+.wrapper {
+  width: 100%;
+}
+
+.headerContainer {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.imgContainer {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.headerContainer > h1 {
+  font-size: clamp(1.25rem, 7.5vw, 1.75rem);
+  font-weight: 600;
+}

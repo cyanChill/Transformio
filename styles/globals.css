@@ -9,11 +9,34 @@
   --orange-450: 23 100% 72%;
   --orange-500: 23 100% 66%;
   --orange-600: 23 100% 58%;
+  --orange-700: 23 100% 50%;
+
+  --gold-500: 49 100% 50%;
+  --gold-600: 49 100% 45%;
+  --gold-700: 49 100% 40%;
 
   --blue-100: 209 92% 86%;
   --blue-300: 209 92% 75%;
   --blue-500: 209 92% 60%;
   --blue-700: 209 92% 40%;
+
+  --navy-500: 231 22% 19%;
+
+  /* TEMPORARY START */
+  --lilac-25: #68687a;
+  --lilac-500: #545578;
+  --lilac-600: #46465c;
+  --lilac-700: #37374d;
+  --lilac-800: #323548;
+  --lilac-900: #282838;
+
+  --navy-700: #26293b;
+  --navy-800: #191b2a;
+  --navy-850: #181827;
+  --navy-900: #11121d;
+  --navy-950: #0d0d14;
+  --navy-1000: #010102;
+  /* TEMPORARY END */
 
   --purple-100: 266 100% 90%;
   --purple-300: 266 100% 82%;
@@ -23,6 +46,8 @@
   --off-white-100: 0 0% 98%;
   --off-white-200: 0 0% 96%;
   --off-white-400: 0 0% 94%;
+  --off-white-500: 0 0% 90%;
+  --off-white-600: 0 0% 88%;
 
   --grey-100: 0 0% 90%;
   --grey-200: 0 0% 85%;
@@ -33,6 +58,7 @@
   --grey-550: 228 2% 45%;
   --grey-700: 228 2% 30%;
 
+  --off-black-100: 203 8% 15%;
   --off-black-500: 203 8% 21%;
 
   --max-app-width: 75rem;
@@ -52,9 +78,12 @@
 body,
 #__next {
   min-height: 100vh;
-  background-color: hsl(var(--off-white-400));
+  color: hsl(var(--off-white-400));
+  background-color: hsl(var(--navy-500));
 
   font-family: var(--ff-main);
+  font-weight: 300;
+  letter-spacing: 0.2px;
 }
 
 #__next {

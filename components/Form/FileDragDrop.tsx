@@ -95,7 +95,7 @@ const FileDragDrop = ({
         <div className={styles.formText}>
           <label htmlFor="file" className={styles.inputLabel}>
             <strong>Choose a file</strong>
-            <span className="box__dragndrop"> or drag it here</span>.
+            <span> or drag it here</span>.
           </label>
           <p className={styles.condition}>
             <strong>{process.env.NEXT_PUBLIC_MAX_FILE_SIZE_MB} MB</strong>{" "}

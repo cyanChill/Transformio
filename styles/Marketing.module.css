@@ -33,20 +33,6 @@
   font-size: clamp(0.75rem, 2vw, 0.85rem);
 }
 
-@media (max-width: 568px) {
-  .marketingContainer > :nth-child(even) .featureIcon {
-    grid-area: 1 / 2 / 3 / 3;
-  }
-
-  .marketingContainer > :nth-child(even) .featureName {
-    grid-area: 1 / 1 / 2 / 2;
-  }
-
-  .marketingContainer > :nth-child(even) .featureDescription {
-    grid-area: 2 / 1 / 3 / 2;
-  }
-}
-
 @media (min-width: 568px) {
   .marketingContainer {
     grid-template-columns: repeat(2, calc((100% - 1rem) / 2));

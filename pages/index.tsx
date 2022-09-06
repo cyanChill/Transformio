@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 
 import styles from "../styles/Home.module.css";
+import Header from "../components/Header";
 import Hero from "../components/Hero";
 import UploadForm from "../components/Upload/UploadForm";
 import Marketing from "../components/Marketing";
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header />
       <Hero />
       <UploadForm />
       <Marketing />

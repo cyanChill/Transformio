@@ -32,19 +32,26 @@
   border-radius: 0.5rem;
   border: 0;
   color: hsl(var(--off-white-100));
-  background-color: hsl(var(--orange-500));
-  box-shadow: 1px 1px 4px hsl(var(--grey-300));
+  background-image: linear-gradient(
+    to bottom right,
+    hsl(var(--orange-600)),
+    hsl(var(--gold-600))
+  );
+  box-shadow: 1px 1px 4px hsl(var(--off-black-100) / 50%);
   font-size: 1rem;
   font-weight: 500;
   font-family: var(--ff-main);
 
   animation: appear 500ms;
-  transition: background-color 500ms;
 }
 
 .btn:hover {
   cursor: pointer;
-  background-color: hsl(var(--orange-600));
+  background-image: linear-gradient(
+    to bottom right,
+    hsl(var(--orange-700)),
+    hsl(var(--gold-700))
+  );
 }
 
 .btn.hide {

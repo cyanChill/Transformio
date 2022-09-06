@@ -1,6 +1,5 @@
 .wrapper {
   width: 100%;
-  background-color: hsl(var(--blue-100));
 }
 
 .heroContainer {
@@ -10,27 +9,30 @@
 }
 
 .heroText {
-  margin-block: auto;
-}
-
-.heroText h1 {
-  font-family: var(--ff-title);
-  font-size: clamp(2rem, 7.5vw, 2.5rem);
-  margin-bottom: 0.75rem;
+  max-width: 30ch;
+  text-align: center;
+  margin-inline: auto;
 }
 
 .animatedSVG {
-  max-width: 15rem;
+  max-width: 10rem;
   margin-inline: auto;
 }
 
 @media (min-width: 568px) {
   .heroContainer {
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
+  }
+
+  .heroText {
+    font-size: clamp(1rem, 3vw, 1.35rem);
+    margin-block: auto;
+    margin-inline: 0;
   }
 
   .animatedSVG {
     width: max-content;
+    margin-inline: 0;
   }
 }

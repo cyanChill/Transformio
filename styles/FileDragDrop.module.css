@@ -14,21 +14,23 @@
   gap: 1rem;
 
   padding: 1rem;
-  color: hsl(var(--grey-700));
-  outline: 2px dashed hsl(var(--grey-500));
-  outline-offset: -0.5rem;
-  background-color: hsl(var(--grey-100));
-  transition: outline 200ms, outline-offset 200ms, background-color 200ms;
+  outline: 2px dashed hsl(var(--off-white-100) / 50%);
+  outline-offset: -0.75rem;
+  border-radius: 0.5rem;
+  background-color: hsl(var(--off-white-100) / 5%);
+  transition: outline 200ms, outline-offset 200ms, background-color 200ms,
+    transform 300ms;
 }
 
 .dragContainer.dragHover {
   outline-offset: -0.75rem;
-  outline-color: hsl(var(--grey-300));
-  background-color: hsl(var(--off-white-100));
+  outline-color: hsl(var(--off-white-100));
+  background-color: hsl(var(--off-white-100) / 10%);
+  transform: scale(101%);
 }
 
 .downloadIcon {
-  color: hsl(var(--grey-450));
+  color: hsl(var(--off-white-200));
   font-size: clamp(3.5rem, 15vw, 5rem);
 }
 
@@ -42,12 +44,12 @@
 
 .inputLabel:hover > strong,
 .inputLabel:focus > strong {
-  color: black;
+  color: white;
 }
 
 .condition {
   font-size: 0.8rem;
-  color: hsl(var(--grey-700));
+  color: hsl(var(--off-white-400));
 }
 
 .condition > strong {
@@ -66,8 +68,8 @@
 
   padding: 0.75rem;
   border-radius: 0.25rem;
-  box-shadow: 1px 1px 4px 2px hsl(var(--grey-300));
-  background-color: hsl(var(--off-white-100));
+  box-shadow: 1px 1px 4px 2px hsl(var(--off-black-100) / 50%);
+  background-color: hsl(var(--off-white-100) / 5%);
 }
 
 .selFile > p {
